@@ -381,13 +381,13 @@ export default class ConversationItem extends Vue {
   "gr": {
     "greeting": "Γεια! Πώς μπορώ να βοηθήσω;",
     "suggestion": {
-      "ask_in_english": "There is no answer defined for your question! Would you like to submit your question again in English?",
-      "text_for_english": "I’m unable to find an answer to your question. Would you like to suggest this question to my database?",
-      "text_not_for_english": "Would you like to suggest this question to my database?",
+      "ask_in_english": "Δεν υπάρχει η απάντηση για την ερώτησή σας! Θα θέλατε να υποβάλετε ξανά την ερώτησή σας στα Αγγλικά;",
+      "text_for_english": "Δεν μπορώ να βρω απάντηση στην ερώτησή σας. Θα θέλατε να προσθέσετε αυτήν την ερώτηση στη βάση δεδομένων των ερωτήσεων;",
+      "text_not_for_english": "Θα θέλατε να προσθέσετε αυτήν την ερώτηση στη βάση δεδομένων των ερωτήσεων;",
       "congrats": "Ωραία! Έχεις περαιτέρω απορίες;",
       "buttons": {
-        "yes": "Yes",
-        "no": "No"
+        "yes": "Ναι",
+        "no": "Οχι"
       }
     }
   }

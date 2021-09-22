@@ -6,15 +6,15 @@
           {{ $t("info.header") }}
         </div>
         <div class="mt-4">
-          <strong>{{ $t("info.popular_questions") }}</strong>
-          <ul class="popular-questions pl-0">
+          <strong>{{ $t("info.sample_questions") }}</strong>
+          <ul class="sample-questions pl-0">
             <li
-              v-for="(question, index) in popularQuestions"
+              v-for="(question, index) in sampleQuestions"
               v-bind:key="index"
               class="mt-1"
             >
-              <span @click="onAskPopularQuestion(question)">
-                {{ question }}
+              <span @click="onAskSampleQuestion(question)">
+                {{ question.text }}
               </span>
             </li>
           </ul>
@@ -84,10 +84,12 @@
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
+import { SampleQuestion } from "../store";
 import { chatBotService } from "../services/chatbot";
 import { knowledgeBaseService } from "../services/kb";
 import ConversationItem from "./ConversationItem.vue";
 import LanguageChooser from "./LanguageChooser.vue";
+import SampleQuestions from "../data/questions.json";
 
 @Component({
   components: {
@@ -112,12 +114,7 @@ export default class ChatBot extends Vue {
   }
 
   mounted() {
-    // TODO Those should be loaded from an API
-    this.$store.dispatch("setPopularQuestions", [
-      "What is a school profile?",
-      "Who can participate in Selfie?",
-      "How can I start using Selfie?"
-    ]);
+    this.$store.dispatch("setSampleQuestions", SampleQuestions);
     this.addToConversation("greeting");
   }
 
@@ -125,8 +122,10 @@ export default class ChatBot extends Vue {
     return this.$store.state.conversation;
   }
 
-  public get popularQuestions(): Array<string>[] {
-    return this.$store.state.popularQuestions;
+  public get sampleQuestions(): Array<SampleQuestion> {
+    return this.$store.getters.sampleQuestionsForLocale(
+      this.$root.$i18n.locale
+    );
   }
 
   private get questionElement(): HTMLElement {
@@ -167,9 +166,9 @@ export default class ChatBot extends Vue {
     });
   }
 
-  onAskPopularQuestion(question: string): void {
+  onAskSampleQuestion(question: SampleQuestion): void {
     if (!this.loading) {
-      this.askQuestion(question);
+      this.askQuestion(question.text);
     }
   }
 
@@ -266,7 +265,7 @@ export default class ChatBot extends Vue {
       font-size: 150%;
     }
 
-    .popular-questions {
+    .sample-questions {
       list-style-type: none;
 
       li > span {
@@ -313,7 +312,7 @@ export default class ChatBot extends Vue {
   "en": {
     "info": {
       "header": "Hello! I'm the SELFIE CHATBOT. How can I help you?",
-      "popular_questions": "To start with, here are some sample questions:",
+      "sample_questions": "To start with, here are some sample questions:",
       "see_more_questions": "See more common questions"
     },
     "conversation": {
@@ -323,7 +322,7 @@ export default class ChatBot extends Vue {
   "et": {
     "info": {
       "header": "Tere! Olen SELFIE CHATBOT, kuidas saan abiks olla?",
-      "popular_questions": "Siin on mõned näidisküsimused:",
+      "sample_questions": "Siin on mõned näidisküsimused:",
       "see_more_questions": "Rohkem küsimusi"
     },
     "conversation": {
@@ -333,7 +332,7 @@ export default class ChatBot extends Vue {
   "fi": {
     "info": {
       "header": "Hei, Olen SELFIE chatbot, kuinka voin auttaa sinua ?",
-      "popular_questions": "Tässä joitakin esimerkkikysymyksiä:",
+      "sample_questions": "Tässä joitakin esimerkkikysymyksiä:",
       "see_more_questions": "Haluatko nähdä lisää yleisimpiä kysymyksiä?"
     },
     "conversation": {
@@ -343,7 +342,7 @@ export default class ChatBot extends Vue {
   "it": {
     "info": {
       "header": "Ciao. Sono il Chatbot di SELFIE. Come posso aiutarti?",
-      "popular_questions": "Per cominciare, ecco alcune domande di esempio:",
+      "sample_questions": "Per cominciare, ecco alcune domande di esempio:",
       "see_more_questions": "Visualizza altre domande comuni."
     },
     "conversation": {
@@ -353,7 +352,7 @@ export default class ChatBot extends Vue {
   "gr": {
     "info": {
       "header": "Γεια! Είμαι ο SELFIE CHATBOT, πώς μπορώ να βοηθήσω;",
-      "popular_questions": "To start with, here are some sample questions:",
+      "sample_questions": "Για αρχή, εδώ είναι μερικά δείγματα ερωτήσεων:",
       "see_more_questions": "Δες περισσότερες κοινές ερωτήσεις"
     },
     "conversation": {
