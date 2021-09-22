@@ -109,7 +109,7 @@
 
 <script lang="ts">
 import { Component, Vue, Prop } from "vue-property-decorator";
-import urlRegex from "url-regex";
+import urlRegexSafe from "url-regex-safe";
 import { ConversationEntry } from "../store";
 import { knowledgeBaseService } from "../services/kb";
 import { recaptchaService } from "../services/recaptcha";
@@ -232,20 +232,26 @@ export default class ConversationItem extends Vue {
   }
 
   htmlifyText(value: string): string {
-    // Escape before converting linebrakes and links to HTML
+    // Escape before converting linebreaks and links to HTML
     value = this.escapeHtml(value);
 
     let processed = value;
     processed = processed.replace(/\\n/g, "<br>");
-    processed = processed.replace(urlRegex(), url => {
-      if (url.endsWith(",") || url.endsWith(".")) {
-        const ending = url.charAt(url.length - 1);
-        url = url.slice(0, -1);
-        return `<a href="${url}" target="_blank">${url}</a>${ending}`;
-      }
+    processed = processed.replace(
+      urlRegexSafe({
+        strict: true
+      }),
+      url => {
+        // TODO See if this code is still relevant after moving to url-regex-safe
+        if (url.endsWith(",") || url.endsWith(".")) {
+          const ending = url.charAt(url.length - 1);
+          url = url.slice(0, -1);
+          return `<a href="${url}" target="_blank">${url}</a>${ending}`;
+        }
 
-      return `<a href="${url}" target="_blank">${url}</a>`;
-    });
+        return `<a href="${url}" target="_blank">${url}</a>`;
+      }
+    );
 
     return processed;
   }
