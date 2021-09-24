@@ -1,6 +1,5 @@
 <template>
   <b-dropdown
-    id="change-locale"
     dropup
     :text="language"
     variant="outline-light"
@@ -30,7 +29,7 @@ import { Component, Vue } from "vue-property-decorator";
     }
   }
 })
-export default class LanguageChoser extends Vue {
+export default class LanguageChooser extends Vue {
   public get language(): string {
     const locale = this.$i18n.locale;
     return this.$t(`languages.${locale}`).toString();
