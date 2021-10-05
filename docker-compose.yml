@@ -1,0 +1,12 @@
+version: "3.9"
+
+services:
+  web:
+    container_name: web
+    image: sherpa/helper
+    ports:
+      - "80:80"
+    environment:
+      - APP_RECAPTCHA_KEY=12345
+      - APP_CHATBOT_URL=http://chatbot
+      - APP_KNOWLEDGE_BASE_URL=http://knowledgebase
