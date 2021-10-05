@@ -1,7 +1,7 @@
 <template>
   <div class="container main my-4">
     <div class="row">
-      <div class="col-sm info p-4">
+      <div class="col-sm info p-4 d-flex flex-column">
         <div class="header my-4">
           {{ $t("info.header") }}
         </div>
@@ -24,7 +24,7 @@
           </div-->
         </div>
 
-        <div class="d-flex flex-row-reverse mb">
+        <div class="mt-auto align-self-end">
           <language-chooser :locales="locales"></language-chooser>
         </div>
       </div>
