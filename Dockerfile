@@ -1,7 +1,7 @@
 FROM node:12-alpine
 WORKDIR /helper
 COPY . .
-RUN [ -d node_modules ] && rm -rf node_modules
+RUN if [ -d node_modules ]; then rm -rf node_modules; fi
 RUN cp docker/docker-env .env
 RUN npm install && npm run build
 
