@@ -349,7 +349,7 @@ export default class ChatBot extends Vue {
       "question_placeholder": "Inserisci qui la tua domanda"
     }
   },
-  "gr": {
+  "el": {
     "info": {
       "header": "Γεια! Είμαι ο SELFIE CHATBOT, πώς μπορώ να βοηθήσω;",
       "sample_questions": "Για αρχή, εδώ είναι μερικά δείγματα ερωτήσεων:",

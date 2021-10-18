@@ -384,7 +384,7 @@ export default class ConversationItem extends Vue {
       }
     }
   },
-  "gr": {
+  "el": {
     "greeting": "Γεια! Πώς μπορώ να βοηθήσω;",
     "suggestion": {
       "ask_in_english": "Δεν υπάρχει η απάντηση για την ερώτησή σας! Θα θέλατε να υποβάλετε ξανά την ερώτησή σας στα Αγγλικά;",

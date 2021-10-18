@@ -49,7 +49,7 @@ export default class LanguageChooser extends Vue {
       "en": "English",
       "et": "Estonian",
       "fi": "Finnish",
-      "gr": "Greek",
+      "el": "Greek",
       "it": "Italian"
     }
   },
@@ -58,7 +58,7 @@ export default class LanguageChooser extends Vue {
       "en": "Inglise",
       "et": "Eesti",
       "fi": "Soome",
-      "gr": "Kreeka",
+      "el": "Kreeka",
       "it": "Itaalia"
     }
   },
@@ -67,7 +67,7 @@ export default class LanguageChooser extends Vue {
       "en": "Englanti",
       "et": "Eesti",
       "fi": "Suomi",
-      "gr": "Kreikka",
+      "el": "Kreikka",
       "it": "Italia"
     }
   },
@@ -76,16 +76,16 @@ export default class LanguageChooser extends Vue {
       "en": "Inglese",
       "et": "Estone",
       "fi": "Finlandese",
-      "gr": "Greco",
+      "el": "Greco",
       "it": "Italiano"
     }
   },
-  "gr": {
+  "el": {
     "languages": {
       "en": "Αγγλικά",
       "et": "Εσθονικά",
       "fi": "Φινλανδικά",
-      "gr": "Ελληνικά",
+      "el": "Ελληνικά",
       "it": "Ιταλικά"
     }
   }

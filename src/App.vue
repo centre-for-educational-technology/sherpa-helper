@@ -31,7 +31,7 @@ import "@fortawesome/fontawesome-free/css/all.css";
   }
 })
 export default class App extends Vue {
-  locales = ["en", "et", "fi", "gr", "it"];
+  locales = ["en", "et", "fi", "el", "it"];
 
   created() {
     let localeSet = false;
