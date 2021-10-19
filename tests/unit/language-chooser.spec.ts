@@ -11,7 +11,7 @@ import { DropdownPlugin } from "bootstrap-vue";
 import { BDropdown } from "bootstrap-vue";
 import { BDropdownItem } from "bootstrap-vue";
 
-const locales = ["en", "et", "fi", "gr", "it"];
+const locales = ["en", "et", "fi", "el", "it"];
 
 function createLanguageChooserWrapper(
   shallow = false
@@ -49,7 +49,7 @@ describe("LanguageChooser.vue", () => {
     expect(wrapper.contains(BDropdown)).to.eq(true);
     expect(wrapper.findAll(BDropdownItem).length).to.eq(5);
     expect(wrapper.text()).to.include(
-      "languages.en  languages.et  languages.fi  languages.gr  languages.it"
+      "languages.en  languages.et  languages.fi  languages.el  languages.it"
     );
 
     wrapper.vm.onChangeLocale("et");
