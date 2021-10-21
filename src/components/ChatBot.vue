@@ -1,5 +1,5 @@
 <template>
-  <div class="container main my-4">
+  <div class="container main my-4 chat-bot">
     <div class="row">
       <div class="col-sm info p-4 d-flex flex-column">
         <div class="header my-4">

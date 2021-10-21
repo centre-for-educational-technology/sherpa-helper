@@ -15,20 +15,20 @@ module.exports = {
 
     const app = homepage.section.app;
     app.assert.elementCount("@logo", 1);
-    app.expect.section("@welcome").to.be.visible;
+    app.expect.section("@info").to.be.visible;
     app.expect
-      .section("@headline")
-      .text.to.match(/^Welcome to Your Vue\.js (.*)App$/);
+      .section("@header")
+      .text.to.match(/^Hello! I'm the SELFIE CHATBOT\. How can I help you\?$/);
 
     browser.end();
   },
 
   'verify if string "e2e-nightwatch" is within the cli plugin links': browser => {
     const homepage = browser.page.homepage();
-    const welcomeSection = homepage.section.app.section.welcome;
+    const welcomeSection = homepage.section.app.section.info;
 
     welcomeSection.expect
-      .element("@cliPluginLinks")
-      .text.to.contain("e2e-nightwatch");
+      .element("@sampleQuestions")
+      .text.to.contain("What is a school profile?");
   }
 };

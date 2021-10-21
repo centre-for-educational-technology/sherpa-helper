@@ -3,7 +3,7 @@
     dropup
     :text="language"
     variant="outline-light"
-    class="m-2"
+    class="m-2 language-chooser"
     size="lg"
   >
     <b-dropdown-item

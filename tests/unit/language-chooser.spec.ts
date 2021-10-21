@@ -41,6 +41,8 @@ describe("LanguageChooser.vue", () => {
   it("renders LanguageChooser and checks internal behaviour", () => {
     const wrapper = createLanguageChooserWrapper(true);
 
+    expect(wrapper.classes()).to.contain("language-chooser");
+
     expect(wrapper.props().locales).to.eq(locales);
     expect(wrapper.vm.$i18n.locale).to.eq("en");
     expect(wrapper.vm.$root.$i18n.locale).to.eq("en");

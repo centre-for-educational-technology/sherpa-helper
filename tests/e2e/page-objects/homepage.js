@@ -30,18 +30,18 @@ module.exports = {
       // - a page object section can also have sub-sections
       // - elements or sub-sections located here are retrieved using the "app" section as the base
       sections: {
-        headline: {
-          selector: "h1"
+        header: {
+          selector: ".chat-bot .info .header"
         },
 
-        welcome: {
-          // the equivalent css selector for the "welcome" sub-section would be:
+        info: {
+          // the equivalent css selector for the "info" sub-section would be:
           //  '#app div.hello'
-          selector: "div.hello",
+          selector: ".chat-bot .info",
 
           elements: {
-            cliPluginLinks: {
-              selector: "ul",
+            sampleQuestions: {
+              selector: "ul.sample-questions",
               index: 0
             }
           }
