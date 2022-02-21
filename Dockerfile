@@ -1,4 +1,4 @@
-FROM node:12-alpine
+FROM node:14-alpine
 WORKDIR /helper
 COPY . .
 RUN if [ -d node_modules ]; then rm -rf node_modules; fi
